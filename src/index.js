@@ -1,6 +1,9 @@
 import './pages/index.css';
+
 import { createCard } from './scripts/card.js';
+
 import { openModal, closeModal } from './scripts/modal.js';
+
 import { initialCards } from './scripts/cards.js';
 
 const editPopup = document.querySelector('.popup_type_edit');
@@ -13,6 +16,7 @@ const profileNameInput = profileEditForm.querySelector(
 const profilePositionInput = profileEditForm.querySelector(
   '.popup__input_type_description',
 );
+
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileTitle = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
@@ -25,10 +29,6 @@ const imagePopup = document.querySelector('.popup_type_image');
 const imagePopupFullSize = imagePopup.querySelector('.popup__image');
 const imagePopupCaption = imagePopup.querySelector('.popup__caption');
 const imagePopupCloseButton = imagePopup.querySelector('.popup__close');
-
-const formElement = document.querySelector('.popup__form');
-const nameInput = formElement.querySelector('.popup__input_type_name');
-const jobInput = formElement.querySelector('.popup__input_type_description');
 
 const cardAddForm = document.querySelector('form[name="new-place"]');
 const cardNameInput = cardAddForm.querySelector('.popup__input_type_card-name');
@@ -69,12 +69,12 @@ function showImagePopup(event) {
 
 function handleProfileFormSubmit(event) {
   event.preventDefault();
-  profileTitle.textContent = nameInput.value;
-  profileDescription.textContent = jobInput.value;
+  profileTitle.textContent = profileNameInput.value;
+  profileDescription.textContent = profilePositionInput.value;
   closeModal(editPopup);
 }
 
-formElement.addEventListener('submit', handleProfileFormSubmit);
+profileEditForm.addEventListener('submit', handleProfileFormSubmit);
 
 function addCard(event) {
   event.preventDefault();
