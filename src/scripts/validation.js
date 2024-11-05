@@ -36,7 +36,9 @@ function isValid(formElement, inputElement) {
 }
 
 function setEventListeners(formElement, config = validationConfig) {
-  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+  const inputList = Array.from(
+    formElement.querySelectorAll(config.inputSelector),
+  );
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
   inputList.forEach((inputElement) => {
@@ -81,4 +83,3 @@ export function clearValidation(formElement, validationConfig) {
 
   disableButton(buttonElement, validationConfig.inactiveButtonClass);
 }
-

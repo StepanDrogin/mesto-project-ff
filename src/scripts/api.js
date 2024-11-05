@@ -2,9 +2,9 @@ const config = {
   baseUrl: 'https://nomoreparties.co/v1/cohort-mag-4',
   headers: {
     authorization: '870c74af-6915-45d3-9424-a34a96450693',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   },
-}
+};
 
 async function checkResponse(response) {
   if (!response.ok) {
@@ -18,7 +18,7 @@ function request(endpoint, options = {}) {
   return fetch(`${config.baseUrl}${endpoint}`, {
     headers: config.headers,
     ...options,
-  }).then(checkResponse)
+  }).then(checkResponse);
 }
 
 export function getUserInfo() {
@@ -76,8 +76,7 @@ export function validateImageUrl(url) {
     console.error('Неверный формат URL изображения');
     return Promise.reject('Invalid image URL format');
   }
-  return fetch(url, { method: 'HEAD', mode: 'no-cors' })
-    .then((response) => response.ok)
+  return fetch(url, { method: 'HEAD', mode: 'no-cors' }).then(
+    (response) => response.ok,
+  );
 }
-
-

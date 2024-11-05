@@ -18,8 +18,12 @@ import {
 import { handleSubmit } from './scripts/utils.js';
 
 const profileForm = document.forms['edit-profile'];
-const profileFormNameInput = profileForm.querySelector('.popup__input_type_name');
-const profileFormJobInput = profileForm.querySelector('.popup__input_type_description');
+const profileFormNameInput = profileForm.querySelector(
+  '.popup__input_type_name',
+);
+const profileFormJobInput = profileForm.querySelector(
+  '.popup__input_type_description',
+);
 const profileEditPopup = document.querySelector('.popup_type_edit');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileTitle = document.querySelector('.profile__title');
@@ -43,7 +47,9 @@ const deletePopup = document.querySelector('.popup_type_delete');
 
 const avatarChangeForm = document.forms['change-avatar'];
 const avatarChangeButton = document.querySelector('.profile__image-container');
-const avatarPopupInput = avatarChangeForm.querySelector('.popup__input_type_url');
+const avatarPopupInput = avatarChangeForm.querySelector(
+  '.popup__input_type_url',
+);
 const avatarPopup = document.querySelector('.popup_type_avatar');
 
 const closeButtons = document.querySelectorAll('.popup__close');
@@ -124,7 +130,10 @@ function showImagePopup(event) {
 
 function handleProfileFormSubmit(evt) {
   function makeRequest() {
-    return editProfile(profileFormNameInput.value, profileFormJobInput.value).then((userData) => {
+    return editProfile(
+      profileFormNameInput.value,
+      profileFormJobInput.value,
+    ).then((userData) => {
       profileTitle.textContent = userData.name;
       profileDescription.textContent = userData.about;
       closeModal(profileEditPopup);
